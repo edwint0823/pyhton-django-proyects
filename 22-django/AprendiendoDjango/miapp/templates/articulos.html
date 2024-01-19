@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block title %} Listado de articulos {% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message_success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% for articulo in articulos %}
+        <article class="article-item">
+            {% if  articulo.image != 'null' and articulo.image.url|length >= 1 %}
+                <div class="image">
+                    <img src="{{ articulo.image.url }}">
+                </div>
+            {% endif %}
+            <div class="data">
+                <h2>{{ articulo.title }}</h2>
+                <span class="date">{{ articulo.created_at|date:"d/M/y g:i a" }}</span>
+                <p>
+                    {{ articulo.content }} - {% if articulo.public %} Publico{% else %}Privado{% endif %}
+                    <a class="btn btn-delete" href="{% url 'borrar_articulo' id=articulo.id %}">Borrar</a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </article>
+        <br>
+    {% endfor %}
+{% endblock %}
+{% comment  {{ "Publico" if articulo.public else "Privado" }} %}
+{% endcomment %}

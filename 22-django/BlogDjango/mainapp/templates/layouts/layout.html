@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>{% block title %} {% endblock %}| Edwin</title>
+    {% block scripts %} {% endblock %}
+</head>
+<body>
+<header>
+    <div id="logotipo">
+        <img src="{% static 'images/logo.png' %}">
+        <h1>Proyecto Web con Django | Edwin</h1>
+
+    </div>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="admin/">admin</a>
+        </li>
+
+        {% for page in pages %}
+            <li>
+                <a href="admin/">{{ page.1 }}</a>
+            </li>
+        {% endfor %}
+        {#        <li>#}
+        {#            <a href="{% url 'about' %}">Sobre nosotros</a>#}
+        {#        </li>#}
+    </ul>
+</nav>
+<div class="barra">
+    <span class="esquina-izquierda"></span>
+    <span class="relleno-barra"></span>
+    <span class="esquina-derecha"></span>
+</div>
+<div id="content">
+    <div class="box">
+        {% block content %}
+            <strong> contenido del bloque original </strong>
+        {% endblock %}
+    </div>
+</div>
+<footer>
+    Master en Python &copy Edwin Ariza {% now "d/M/Y" %}
+</footer>
+</body>
+</html>

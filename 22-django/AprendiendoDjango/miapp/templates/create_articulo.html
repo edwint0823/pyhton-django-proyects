@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block title %} Crear articulo {% endblock %}
+{% block content %}
+    <h1>Formulario crear</h1>
+    <form action="{% url 'save' %}" method="POST">
+        {% csrf_token %}
+        <Label for="title">Titulo:</Label>
+        <input type="text" name="title" placeholder="Introduce el titulo del articulo "/>
+        <Label for="content">Contenido:</Label>
+        <textarea name="content"></textarea>
+        <Label for="public">Publicado:</Label>
+        <select name="public">
+            <option value="1">Si</option>
+            <option value="0">No</option>
+        </select>
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock %}

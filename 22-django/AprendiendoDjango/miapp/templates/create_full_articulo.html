@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block title %} Crear articulo {% endblock %}
+{% block content %}
+    <h1>Formulario crear</h1>
+    {% if formulario.errors %}
+        <strong class="rojo">
+            Hay errores en el formulario
+            {#            {{ formulario.errors }}#}
+        </strong>
+
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% comment %} para separar cada campo en una etiqueta en especifico se usa el as_etiqueta{% endcomment %}
+        {{ formulario.as_div }}
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock %}

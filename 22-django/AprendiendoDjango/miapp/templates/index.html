@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %}Inicio {% endblock %}
+{% block content %}
+
+    {% comment 'esto es un comentario'%}
+    {% endcomment %}
+    <h1 class="title">Inicio</h1>
+    {% if year >= 2023 %}
+        {{ year }}
+    {% else %}
+        <strong>paila pelao</strong>
+    {% endif %}
+    <p>Lenguajes</p>
+    <ul>
+        {% for lenguaje in lenguajes %}
+            <li>{{ forloop.counter }}. {{ lenguaje }}</li>
+        {% endfor %}
+    </ul>
+    <p> Años hasta el 2050:</p>
+    <ul>
+        {% for elemento in years %}
+            {% if elemento|divisibleby:2 == True %}
+                <li> {{ forloop.counter }} - {{ elemento }} , primer elemento {{ forloop.first }} , ultimo
+                    elemento {{ forloop.last }}</li>
+            {% endif %}
+        {% empty %}
+            <strong>No hay años que mostrar</strong>
+        {% endfor %}
+    </ul>
+    {% include 'fecha-actual.html' with saludo="Hola mundo desde plantilla " %}
+{% endblock %}

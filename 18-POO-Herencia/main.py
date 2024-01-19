@@ -1,0 +1,30 @@
+import clases
+
+persona = clases.Persona()
+persona.set_nombre("Edwin")
+persona.set_apellidos("Ariza")
+persona.set_edad(19)
+persona.set_altura(180)
+
+print(f"la persona es: {persona.get_nombre()} {persona.get_apellidos()}")
+print(f"tiene {persona.get_edad()} años y mide {persona.get_altura()} centimetros")
+
+print(persona.hablar())
+print("-----------------------------------------")
+informatico = clases.Informatico()
+informatico.set_nombre("Tobias")
+informatico.set_apellidos("Tellez")
+informatico.set_edad(26)
+informatico.set_altura(187)
+informatico.aprender("Go")
+print(f"El informatico es: {informatico.get_nombre()} {informatico.get_apellidos()}")
+print(f"tiene {informatico.get_edad()} años y mide {informatico.get_altura()} centimetros")
+print(f"Tiene conocimientos en {informatico.get_lenguajes()} con {informatico.get_experiencia()} años de experiencia")
+
+print(informatico.hablar())
+print(informatico.programar())
+print(informatico.reparar_pc())
+print("-----------------------------------------")
+tecnico = clases.TecnicoRedes()
+print(tecnico.auditarRedes)
+print(tecnico.get_lenguajes())

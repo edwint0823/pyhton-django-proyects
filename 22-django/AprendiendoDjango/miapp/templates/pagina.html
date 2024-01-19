@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load filters %}
+{% block title %} Pagina de pruebas {% endblock %}
+{% block content %}
+    <h1 class="title">Página de mi web</h1>
+    {% comment 'Eliminar caracteres' %} {% endcomment %}
+    <p>{{ "Creado por Edwin Ariza"|cut:" " }}</p>
+    {% comment 'valores por defecto' %} {% endcomment %}
+    <p>{{ texto|default:"No hay texto" }}</p>
+    {% comment 'Filtros para listas' %} {% endcomment %}
+    <p>{{ lista|first }}</p>
+    <p>{{ lista|last }}</p>
+    <p>{{ lista|join:', ' }}</p>
+    <p>{{ lista|length }}</p>
+    <p>{{ lista|random }}</p>
+    {% comment 'contar caracteres' %} {% endcomment %}
+    <p>{{ "Creado por Edwin Ariza"|length }}</p>
+    <p>{{ "Creado por Edwin Ariza"|upper }}</p>
+    <p>{{ "Creado por Edwin Ariza"|lower }}</p>
+    {% comment 'eliminar etiquetas de html' %} {% endcomment %}
+    <p>{{ "<h1>Texto </h1><strong> Pruebas</strong>"|striptags|wordcount }}</p>
+    {% comment 'Filtro personalizado' %} {% endcomment %}
+    {{ "Edwin Tobias Ariza Tellez"|saludo|safe }}
+
+{% endblock %}
