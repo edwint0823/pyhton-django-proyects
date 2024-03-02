@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} | Página con flask {% endblock %} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {#    <title>{% block title %} Flask {% endblock %} | Página con flask</title>#}
+</head>
+<body>
+<header>
+    <div id="logotipo">
+        <img src="{{ url_for('static', filename='images/logo.svg') }}">
+        <h1>Proyecto Web con Flask | Edwin</h1>
+    </div>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+            <a href="{{ url_for('crear_coche') }}">Crear coche</a>
+        </li>
+        <li>
+            <a href="{{ url_for('coches_list') }}">Listado de coches</a>
+        </li>
+        <li>
+            <a href="{{ url_for('info') }}">Información</a>
+        </li>
+        <li>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+        </li>
+        <li>
+            <a href="{{ url_for('lenguajes') }}">Lenguajes de programación</a>
+        </li>
+
+    </ul>
+</nav>
+<div class="barra">
+    <span class="esquina-izquierda"></span>
+    <span class="relleno-barra"></span>
+    <span class="esquina-derecha"></span>
+</div>
+<div id="content">
+    <div class="box">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<footer>
+    Master en python Edwin Ariza {{ now.strftime("%B") }} {{ now.year }}
+</footer>
+</body>
+</html>

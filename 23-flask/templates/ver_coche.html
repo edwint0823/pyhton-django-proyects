@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block title %} {{ coche.2 }}{{ super() }} {% endblock %}
+{% block content %}
+    <h1 class="title">{{ coche.2 }}</h1>
+    <span class="date">{{ coche.1 }} | {{ coche.3 }} </span>
+    <p class="content">
+        {{ coche.4 }}
+    </p>
+
+{% endblock %}

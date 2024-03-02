@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block title %} Inicio {{ super() }} {% endblock %}
+{% block content %}
+    <h1>Hola mundo</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert_success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% include 'includes/edad.html' %}
+    <p>
+        Tu edad es : {{ edad }}
+    </p>
+
+    <h2>listado de personas</h2>
+    {% include 'includes/personas.html' %}
+    {#
+        hola
+    #}
+    {{ dato1 }}
+    {{ dato2 }}
+{% endblock %}

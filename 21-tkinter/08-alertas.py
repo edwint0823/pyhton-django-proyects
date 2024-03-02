@@ -9,16 +9,16 @@ ventana.config(
 
 
 def mostrar_alerta():
-    # MessageBox.showinfo("Alerta", "Hola puto")
-    # MessageBox.showwarning("Alerta", "Hola puto")
-    MessageBox.showerror("Alerta", "Hola puto")
+    # MessageBox.showinfo("Alerta", "Hola")
+    # MessageBox.showwarning("Alerta", "Hola")
+    MessageBox.showerror("Alerta", "Hola")
 
 
 Button(ventana, text="Mostrar alerta", command=mostrar_alerta).pack()
 
 
 def salir(nombre):
-    resultado = MessageBox.askquestion("Salir", "Quiere salir puto ?")
+    resultado = MessageBox.askquestion("Salir", "Quiere salir ?")
     if resultado == "yes":
         MessageBox.showinfo("Adios ", f"nos vemos {nombre}")
         ventana.destroy()
